@@ -23,7 +23,7 @@ export class imgGalleryInit extends MarkdownRenderChild {
 
   async onload() {
     // parse and normalize settings
-    this._settings = getSettings(this.src, this.container)
+    this._settings = getSettings(this.app, this.src, this.container)
     this._imagesList = getImagesList(this.app, this.container, this._settings)
 
     // inject the pertinent kind of gallery

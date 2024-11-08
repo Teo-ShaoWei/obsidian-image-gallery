@@ -9,12 +9,14 @@ const lightbox = (gallery: HTMLElement, imagesList: {[key: string]: any}, app: A
   // setup a lightbox for the gallery
   const galleryLightbox = Lightbox(gallery, {
     plugins: [LightboxThumbs],
-    counter: false,
+    counter: true,
     download: false,
     thumbnail: true,
-    loop: false,
+    loop: true,
     mode: 'lg-fade',
     licenseKey: '622E672F-760D49DC-980EF90F-B7A9DCB0',
+    speed: 0,
+    mousewheel: true,
   })
 
   // if we are on mobile, make sure to remove unnecessary controls

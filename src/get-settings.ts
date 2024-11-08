@@ -1,7 +1,7 @@
-import { normalizePath, parseYaml, Platform } from 'obsidian'
+import { normalizePath, parseYaml, Platform, type App } from 'obsidian'
 import renderError from './render-error'
 
-const getSettings = (src: string, container: HTMLElement) => {
+const getSettings = (app: App, src: string, container: HTMLElement) => {
   // parse the settings from the code block
   const settingsSrc: any = parseYaml(src)
 
@@ -12,11 +12,11 @@ const getSettings = (src: string, container: HTMLElement) => {
     throw new Error(error)
   }
 
-  if (!settingsSrc.path) {
-    const error = 'Please specify a path!'
-    renderError(container, error)
-    throw new Error(error)
-  }
+  // if (!settingsSrc.path) {
+  //   const error = 'Please specify a path!'
+  //   renderError(container, error)
+  //   throw new Error(error)
+  // }
 
   // store settings, normalize and set sensible defaults
   const settings = {
@@ -31,7 +31,10 @@ const getSettings = (src: string, container: HTMLElement) => {
     height: undefined as number,
   }
 
-  settings.path = normalizePath(settingsSrc.path)
+  const filePath = app.workspace.getActiveFile().path
+  const defaultPath = filePath.substring(0, filePath.lastIndexOf('/'))
+
+  settings.path = normalizePath(settingsSrc.path ?? defaultPath)
   settings.type = settingsSrc.type ?? 'horizontal'
   settings.radius = settingsSrc.radius ?? 0
   settings.gutter = settingsSrc.gutter ?? 8

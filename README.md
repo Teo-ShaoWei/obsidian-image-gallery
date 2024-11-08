@@ -3,6 +3,8 @@
 # Obsidian Image Gallery
 Obsidian Image Gallery is a zero setup masonry image gallery for [Obsidian](https://obsidian.md/).
 
+I edited this to fit my unique use case, which is to configure the `lightgallery`. The configuration would make the settings uglier, which might not be suitable for the original plugin.
+
 **Table of Contents**
 - [Requirements](#requirements)
 - [Usage](#usage)
@@ -28,7 +30,7 @@ To create a dynamic gallery, add one of the following code blocks to a note (mak
 
 For a horizontal masonry:
 ````
-```img-gallery
+```img-gallery-custom
 path: Attachments/Folder
 type: horizontal
 ```
@@ -36,7 +38,7 @@ type: horizontal
 
 For a vertical masonry:
 ````
-```img-gallery
+```img-gallery-custom
 path: Attachments/Folder
 type: vertical
 ```
@@ -58,7 +60,7 @@ Settings can be customized in any order, in `yaml` syntax. Optional properties d
 
 | Option   | Default      | Alternatives    | Required | Description                            |
 | -------- | ------------ | --------------- | -------- | -------------------------------------- |
-| `path`   | -            | -               | Yes      | Path relative to the root of the vault |
+| `path`   | current dir  | -               | No       | Path relative to the root of the vault |
 | `type`   | `horizontal` | `vertical`      | No       | Type of masonry                        |
 | `gutter` | `8`          | (any number)    | No       | Spacing in px between the images       |
 | `radius` | `0`          | (any number)    | No       | Border radius in px of the images      |
