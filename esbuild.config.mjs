@@ -2,7 +2,7 @@ import esbuild from "esbuild";
 import process from "process";
 import builtins from "builtin-modules";
 
-const banner = `/* Obsidian Image Gallery Community plugin: https://github.com/lucaorio/obsidian-image-gallery */`;
+const banner = `/* Obsidian Image Gallery Community plugin: https://github.com/lucaorio/obsidian-image-gallery (customized by me) */`;
 
 const prod = process.argv[2] === "production";
 
